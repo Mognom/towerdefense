@@ -32,6 +32,5 @@ public class cameraMov : MonoBehaviour {
 		if(pos.y < boundary)
 			transform.position += Vector3.down * movSpeed * Time.deltaTime;
 
-		print (pos.x);
 	}
 }
