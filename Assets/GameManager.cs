@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		selected = 1;
+		selected = 0;
 	}
 	
 	// Update is called once per frame
@@ -23,32 +23,28 @@ public class GameManager : MonoBehaviour {
 	}
 	
 	public bool interaccionBloque(Vector3 pos){
-		
 		print ("se ha hecho click en un bloque");
+		print (selected);
 		
-		
+		bool res = false;
 		//DETECTAR SI CONSTRUIR O NO
 		switch (selected) {
 			//Construir torre de arqueros
 		case 1:
-			claridad(pos);
+			Instantiate (torre, pos + new Vector3(0f,0.3f,0f) , torre.transform.rotation);
+			selected = 0;
+			res = true;
 			break;
-			
-			
+		
+			//No se que me ha llegado -> ignore
+		default: break;
 		}
 		
-		return false;
+		return res;
 		
 		
 	}
-	
-	private void claridad(Vector3 pos){
-		GameObject actual;
-		actual = (GameObject) Instantiate (torre, pos + new Vector3(0f,0.3f,0f) , torre.transform.rotation);
-		
-		
-		
-	}
+
 	public void setSelected(int id){
 		selected = id;
 	}
