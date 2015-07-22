@@ -27,10 +27,12 @@ public class cameraMov : MonoBehaviour {
 			transform.position += Vector3.left * movSpeed * Time.deltaTime;
 
 		if(pos.y > height - boundary)
-			transform.position += Vector3.up * movSpeed * Time.deltaTime;
+			transform.position += Vector3.forward * movSpeed * Time.deltaTime;
 
 		if(pos.y < boundary)
-			transform.position += Vector3.down * movSpeed * Time.deltaTime;
+			transform.position += Vector3.back * movSpeed * Time.deltaTime;
+
+
 
 	}
 }
