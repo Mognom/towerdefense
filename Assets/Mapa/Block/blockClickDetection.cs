@@ -15,6 +15,7 @@ public class blockClickDetection : MonoBehaviour {
 
 	void OnMouseOver(){
 		if (!used && Input.GetMouseButtonDown (0)) {
+			print ("pulsado");
 			used = !gm.interaccionBloque(transform.position);
 
 		}
