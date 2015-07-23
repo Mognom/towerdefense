@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 465096}
   - 114: {fileID: 11449696}
+  - 114: {fileID: 11442106}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -28,6 +29,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11442106
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 127844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e5ae60ca7e226a498d7a8f51db81eb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  block: {fileID: 134450, guid: dcfc0795314d7d74291d4d4d987924bd, type: 2}
+  bloquedBlock: {fileID: 128636, guid: f438e99f3cc25f344841c617ab88de8f, type: 2}
+  path: {fileID: 100000, guid: d54d8723c2a9f254096871d086348059, type: 3}
+  border: {fileID: 199356, guid: aba7d6400987ac9439b6554d52de5272, type: 2}
+  interiorBorder: {fileID: 164156, guid: 8fc5d3ffc74a1dc4ebe70ebcabc21f23, type: 2}
+  exteriorBorder: {fileID: 139442, guid: 60f78822f60ab124881d0deab13f612d, type: 2}
 --- !u!114 &11449696
 MonoBehaviour:
   m_ObjectHideFlags: 1
