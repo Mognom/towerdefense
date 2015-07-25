@@ -22,12 +22,13 @@ using System.Collections;
 public class mapGen : MonoBehaviour {
 
 	//Definicion del mapa
-	private int[,] map = {{5,3,3,3,3,5},
-						  {3,7,1,1,7,3},
-						  {3,1,6,6,1,0},
-						  {3,1,6,6,1,0},
-						  {3,7,1,1,7,3},
-						  {5,3,3,3,3,5}}; 
+	private int[,] map = {{5,3,3,3,3,5,5,3,3,3,3,5},
+						  {3,7,1,1,7,6,6,7,1,1,7,3},
+						  {3,1,6,6,8,1,1,8,6,6,1,3},
+						  {3,1,3,5,3,3,3,3,5,3,1,3},
+						  {3,1,6,3,3,3,3,3,3,6,1,3},
+						  {3,7,1,1,1,1,1,1,1,1,7,3},
+						  {5,3,3,3,3,3,3,3,3,3,3,5}}; 
 
 						/*{{0,5,4,5},
 						  {0,3,1,3},
@@ -123,7 +124,7 @@ public class mapGen : MonoBehaviour {
 							rotation = Quaternion.Euler(-90,270,0);
 						
 						//Esquina izquierda arriba
-						else if(x-1 > 0 && z+1 < map.GetLength(0) && (map[z+1,x] == 1 || map[z+1,x] == 7 || map[z+1,x] == 8) && (map[z,x-1] == 1 || map[z+1,x] == 7 || map[z+1,x] == 8))
+						else if(x-1 > 0 && z+1 < map.GetLength(0) && (map[z+1,x] == 1 || map[z+1,x] == 7 || map[z+1,x] == 8) && (map[z,x-1] == 1 || map[z,x-1] == 7 || map[z,x-1] == 8))
 							rotation = Quaternion.Euler(-90,90,0);
 						
 						//Esquina izquierda abajo
@@ -145,6 +146,7 @@ public class mapGen : MonoBehaviour {
 					case 8:
 						actual = (GameObject) Instantiate (corner,new Vector3(x,0,map.GetLength(0)-z -1)*2,corner.transform.rotation);
 						actual.name = corner.name; //Odio el (clone) =3
+						actual.GetComponentInChildren<CornerTurn>().setDirection(-1);
 						break;
 						
 
