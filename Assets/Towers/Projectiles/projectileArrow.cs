@@ -25,7 +25,7 @@ public class projectileArrow : Projectile {//Projectile {
 	}
 
 	void OnTriggerEnter(Collider other){
-		if (other.tag == "Enemy") {
+		if (other.gameObject == objective) {
 			Destroy (other.gameObject);
 			Destroy (this.gameObject);
 		}
