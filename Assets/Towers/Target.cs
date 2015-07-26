@@ -23,8 +23,9 @@ public class Target : MonoBehaviour {
 			target = null;
 		}
 		else {
-				print ("tiene objetivo");
-				target.GetComponent<MeshRenderer> ().material.color = new Color (1, 0, 1, 1);
+			print ("tiene objetivo");
+			Debug.DrawLine(target.transform.position, transform.position + new Vector3(0,1,0));
+			//target.GetComponent<MeshRenderer> ().material.color = new Color (1, 0, 1, 1);
 
 		}
 	}
