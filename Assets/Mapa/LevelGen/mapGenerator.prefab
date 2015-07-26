@@ -42,6 +42,7 @@ MonoBehaviour:
   block: {fileID: 134450, guid: dcfc0795314d7d74291d4d4d987924bd, type: 2}
   bloquedBlock: {fileID: 128636, guid: f438e99f3cc25f344841c617ab88de8f, type: 2}
   path: {fileID: 100000, guid: d54d8723c2a9f254096871d086348059, type: 3}
+  corner: {fileID: 100000, guid: d54d8723c2a9f254096871d086348059, type: 3}
   border: {fileID: 199356, guid: aba7d6400987ac9439b6554d52de5272, type: 2}
   interiorBorder: {fileID: 164156, guid: 8fc5d3ffc74a1dc4ebe70ebcabc21f23, type: 2}
   exteriorBorder: {fileID: 139442, guid: 60f78822f60ab124881d0deab13f612d, type: 2}
@@ -80,6 +81,10 @@ Prefab:
       propertyPath: exteriorBorder
       value: 
       objectReference: {fileID: 139442, guid: 60f78822f60ab124881d0deab13f612d, type: 2}
+    - target: {fileID: 0}
+      propertyPath: corner
+      value: 
+      objectReference: {fileID: 100000, guid: d54d8723c2a9f254096871d086348059, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 110326}
