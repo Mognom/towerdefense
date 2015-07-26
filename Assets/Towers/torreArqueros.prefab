@@ -11,6 +11,7 @@ GameObject:
   - 33: {fileID: 3336304}
   - 23: {fileID: 2397828}
   - 114: {fileID: 11430384}
+  - 114: {fileID: 11462748}
   m_Layer: 0
   m_Name: torreArqueros
   m_TagString: Untagged
@@ -67,13 +68,35 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 175054}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea213e916f8a77d4787901833d4e7e75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemiesTag: 456e656d79
+  range: 6
+  attackSecCD: 0
+  elapsedCD: 0
+  once: 1
+  target: {fileID: 0}
+  pos: {x: 0, y: 0}
+  projectile: {fileID: 153246, guid: ad1fcc9444907514ebf961a40d13c101, type: 2}
+  actual: {fileID: 0}
+--- !u!114 &11462748
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 175054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bdf01c75e458f341b138ef9a423b01b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   enemiesTag: Enemy
   range: 6
+  attackSecCD: 2
+  projectile: {fileID: 153246, guid: ad1fcc9444907514ebf961a40d13c101, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -88,6 +111,22 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: enemiesTag
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 153246, guid: ad1fcc9444907514ebf961a40d13c101, type: 2}
+    - target: {fileID: 0}
+      propertyPath: attackCD
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: attackSecCD
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
