@@ -22,7 +22,7 @@ using System.Collections;
 public class mapGen : MonoBehaviour {
 
 	//Definicion del mapa
-	private int[,] map = {{5,3,3,3,3,5,5,3,3,3,3,5},
+	private int[,] map = {{5,3,3,0,0,0,0,0,3,3,3,5},
 						  {3,7,1,1,7,6,6,7,1,1,7,3},
 						  {3,1,6,6,8,1,1,8,6,6,1,3},
 						  {3,1,3,5,3,3,3,3,5,3,1,3},

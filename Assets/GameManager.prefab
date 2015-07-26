@@ -58,7 +58,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d8205fe4b0b95f489afb0772fb572e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  torre: {fileID: 128636, guid: f438e99f3cc25f344841c617ab88de8f, type: 2}
+  arqueros: {fileID: 100000, guid: ccbd3c2d24b07114591a92a126adf585, type: 3}
+  ballesta: {fileID: 100000, guid: dfd9e96c4dc6f8944aa1ea5f32d5db23, type: 3}
+  pinchos: {fileID: 100000, guid: f914c1b934f6c214caf33c0f129c1e9b, type: 3}
+  lava: {fileID: 100000, guid: 5d13361633abef140a4a085d2979a332, type: 3}
+  mortero: {fileID: 100002, guid: cefffcf3206f5c04aadb28b40ff60987, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -74,6 +78,30 @@ Prefab:
       propertyPath: corner
       value: 
       objectReference: {fileID: 131608, guid: 6837d6da510dbb9489829ffd75463686, type: 2}
+    - target: {fileID: 0}
+      propertyPath: torre
+      value: 
+      objectReference: {fileID: 100000, guid: ccbd3c2d24b07114591a92a126adf585, type: 3}
+    - target: {fileID: 0}
+      propertyPath: lava
+      value: 
+      objectReference: {fileID: 100000, guid: 5d13361633abef140a4a085d2979a332, type: 3}
+    - target: {fileID: 0}
+      propertyPath: pinchos
+      value: 
+      objectReference: {fileID: 100000, guid: f914c1b934f6c214caf33c0f129c1e9b, type: 3}
+    - target: {fileID: 0}
+      propertyPath: mortero
+      value: 
+      objectReference: {fileID: 100002, guid: cefffcf3206f5c04aadb28b40ff60987, type: 3}
+    - target: {fileID: 0}
+      propertyPath: ballesta
+      value: 
+      objectReference: {fileID: 100000, guid: dfd9e96c4dc6f8944aa1ea5f32d5db23, type: 3}
+    - target: {fileID: 0}
+      propertyPath: arqueros
+      value: 
+      objectReference: {fileID: 100000, guid: ccbd3c2d24b07114591a92a126adf585, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 127844}
