@@ -40,7 +40,11 @@ public class GameManager : MonoBehaviour {
 			selected = 0;
 			res = true;
 			break;
-		
+		case 4:
+			Instantiate (lava, pos + new Vector3(0f,0.3f,0f) , lava.transform.rotation);
+			selected = 0;
+			res = true;
+			break;
 		case 5:
 			Instantiate (mortero, pos + new Vector3(0f,0.3f,0f) , mortero.transform.rotation);
 			selected = 0;
