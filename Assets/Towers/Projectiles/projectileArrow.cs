@@ -11,9 +11,8 @@ public class projectileArrow : Projectile {//Projectile {
 	
 	// Update is called once per frame
 	void Update () {
-		i++;
-		if(i == 200);
-			//Destroy (this.gameObject);
+		if (objective == null)
+			Destroy (this.gameObject);
 
 		float step = speed * Time.deltaTime;
 		transform.position = Vector3.MoveTowards (transform.position, objective.transform.position, step);
@@ -22,14 +21,6 @@ public class projectileArrow : Projectile {//Projectile {
 	
 	public override void setObjective(GameObject o){
 		objective = o;
-		
-		Rigidbody rb = this.GetComponent<Rigidbody> ();
-		
-		Vector3 dir = (o.transform.position - transform.position).normalized;
-		
-	//	rb.velocity = dir * speed;
-		
-		print ("Fijado");
 		
 	}
 
