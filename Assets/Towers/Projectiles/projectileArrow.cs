@@ -11,8 +11,10 @@ public class projectileArrow : Projectile {//Projectile {
 	
 	// Update is called once per frame
 	void Update () {
-		if (objective == null)
+		if (objective == null) {
 			Destroy (this.gameObject);
+			return;
+		}
 
 		float step = speed * Time.deltaTime;
 		transform.position = Vector3.MoveTowards (transform.position, objective.transform.position, step);

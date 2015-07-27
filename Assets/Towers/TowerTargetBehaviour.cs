@@ -10,7 +10,6 @@ public class TowerTargetBehaviour : MonoBehaviour {
 	//Attack speed
 	public float attackSecCD = 2;
 	private float elapsedCD;
-	private bool once = true;
 	
 	//Projectile
 	private GameObject target;
