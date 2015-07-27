@@ -23,6 +23,8 @@ public class projectileArrow : Projectile {//Projectile {
 	
 	public override void setObjective(GameObject o){
 		objective = o;
+		transform.LookAt (o.transform.position);
+
 		
 	}
 
