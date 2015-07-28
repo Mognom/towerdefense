@@ -6,6 +6,8 @@ public class EnemyAI : MonoBehaviour {
 	public int speed;
 	public int maxHP;
 
+	public GameObject damagePopup;
+
 	private GameObject m_Camera;
 	private int HP;
 	private Transform healthBar;
@@ -13,8 +15,8 @@ public class EnemyAI : MonoBehaviour {
 
 	void Start () {
 		HP = maxHP;
-		canvas = transform.FindChild ("CanvasHealthBar");
-		healthBar = canvas.FindChild ("HealthBar");
+		healthBar = transform.FindChild ("EnemyCanvas/HealthBG/HealthBar");
+		//healthBar = transform.Find ("HealthBar");
 		m_Camera = GameObject.FindGameObjectWithTag ("MainCamera");
 
 		this.GetComponent<Rigidbody> ().velocity = new Vector3 (speed, 0, 0);
@@ -26,6 +28,8 @@ public class EnemyAI : MonoBehaviour {
 	public void damaged(int damage){
 		//Calcula el daño y en caso de morir pues muere
 		HP -= damage;
+		createDamagePopup (damage);
+
 		if (HP < 0) {
 			Destroy (this.gameObject);
 			return;
@@ -35,6 +39,22 @@ public class EnemyAI : MonoBehaviour {
 		updateHealthBar ();
 
 	}
+
+	private void createDamagePopup(int damage){
+		GameObject temp = (GameObject)Instantiate (damagePopup);
+		RectTransform tempRect = temp.GetComponent<RectTransform> ();
+		temp.transform.SetParent(transform.FindChild("EnemyCanvas"));
+
+		tempRect.transform.localPosition = damagePopup.transform.localPosition;
+		tempRect.transform.localScale = damagePopup.transform.localScale;
+		tempRect.transform.localRotation = damagePopup.transform.localRotation;
+
+	//	temp.GetComponent<Animator> ().Play (0);
+
+		Destroy (temp, 1);
+
+	}
+
 
 	//Actualiza la barra de vida para reflejar la vida restante tras ser dañado
 	private void updateHealthBar(){
@@ -46,7 +66,7 @@ public class EnemyAI : MonoBehaviour {
 
 	//Cuando rota tiene que actualizarse la barra de vida para que mire a la camara
 	public void turn(){
-		canvas.LookAt(canvas.position + m_Camera.transform.rotation * Vector3.back,m_Camera.transform.rotation * Vector3.up);
+		//canvas.LookAt(canvas.position + m_Camera.transform.rotation * Vector3.back,m_Camera.transform.rotation * Vector3.up);
 
 	}
 }
