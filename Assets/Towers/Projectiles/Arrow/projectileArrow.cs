@@ -30,7 +30,7 @@ public class projectileArrow : Projectile {//Projectile {
 
 	void OnTriggerEnter(Collider other){
 		if (other.gameObject == objective) {
-			Destroy (other.gameObject);
+			other.gameObject.GetComponent<EnemyAI>().damaged(1);
 			Destroy (this.gameObject);
 		}
 
