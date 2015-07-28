@@ -51,7 +51,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &171000
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,7 +97,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 186284}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.76599979, y: 0, z: 9.7510004}
+  m_LocalPosition: {x: 4, y: 0, z: 10}
   m_LocalScale: {x: .400000006, y: 1, z: .400000006}
   m_Children:
   - {fileID: 22445988}
@@ -213,7 +213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   maxHP: 5
-  damagePopup: {fileID: 156578}
+  damagePopup: {fileID: 146754, guid: 0034364dab83d874da76c2c8d412c79b, type: 2}
 --- !u!114 &11434958
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -441,7 +441,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: damagePopup
       value: 
-      objectReference: {fileID: 156578}
+      objectReference: {fileID: 146754, guid: 0034364dab83d874da76c2c8d412c79b, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 186284}

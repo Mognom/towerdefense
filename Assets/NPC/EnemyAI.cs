@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class EnemyAI : MonoBehaviour {
@@ -50,7 +51,7 @@ public class EnemyAI : MonoBehaviour {
 		tempRect.transform.localRotation = damagePopup.transform.localRotation;
 
 	//	temp.GetComponent<Animator> ().Play (0);
-
+		temp.GetComponent<Text> ().text = damage + "";
 		Destroy (temp, 1);
 
 	}
