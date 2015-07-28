@@ -29,9 +29,10 @@ public class EnemyAI : MonoBehaviour {
 	public void damaged(int damage){
 		//Calcula el daño y en caso de morir pues muere
 		HP -= damage;
-		createDamagePopup (damage);
+		createPopup (damage.ToString(), Color.red, 100);
 
-		if (HP < 0) {
+		if (HP <= 0) {
+			createPopup("+10g", Color.yellow, 130);
 			Destroy (this.gameObject);
 			return;
 		}
@@ -41,17 +42,12 @@ public class EnemyAI : MonoBehaviour {
 
 	}
 
-	private void createDamagePopup(int damage){
-		GameObject temp = (GameObject)Instantiate (damagePopup);
-		RectTransform tempRect = temp.GetComponent<RectTransform> ();
-		temp.transform.SetParent(transform.FindChild("EnemyCanvas"));
-
-		tempRect.transform.localPosition = damagePopup.transform.localPosition;
-		tempRect.transform.localScale = damagePopup.transform.localScale;
-		tempRect.transform.localRotation = damagePopup.transform.localRotation;
-
-	//	temp.GetComponent<Animator> ().Play (0);
-		temp.GetComponent<Text> ().text = damage + "";
+	private void createPopup(string valor, Color col, int size){
+		GameObject temp = (GameObject)Instantiate (damagePopup,transform.position, Quaternion.identity);
+		Text texto = temp.GetComponentInChildren<Text> ();
+		texto.color = col;
+		texto.text = valor;
+		texto.fontSize = size;
 		Destroy (temp, 1);
 
 	}
@@ -60,7 +56,6 @@ public class EnemyAI : MonoBehaviour {
 	//Actualiza la barra de vida para reflejar la vida restante tras ser dañado
 	private void updateHealthBar(){
 		float health = (float)HP / maxHP;
-		print (health);
 		healthBar.localScale = new Vector3(health,healthBar.localScale.y , healthBar.localScale.z);
 
 	}
