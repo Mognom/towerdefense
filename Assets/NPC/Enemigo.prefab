@@ -34,24 +34,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &156578
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 224: {fileID: 22476220}
-  - 222: {fileID: 22252314}
-  - 114: {fileID: 11440892}
-  - 95: {fileID: 9532532}
-  m_Layer: 0
-  m_Name: DamagePopUp
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
 --- !u!1 &171000
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,7 +83,6 @@ Transform:
   m_LocalScale: {x: .400000006, y: 1, z: .400000006}
   m_Children:
   - {fileID: 22445988}
-  - {fileID: 22476220}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!23 &2391168
@@ -162,23 +143,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!95 &9532532
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 156578}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fa55dbd8b636fc549b6ffed3ba58e483, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11402524
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -211,9 +175,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a6b794f0095ad84f9a37e4598535829, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  maxHP: 5
-  damagePopup: {fileID: 146754, guid: 0034364dab83d874da76c2c8d412c79b, type: 2}
+  speed: 1
+  maxHP: 2
+  popUpPrefab: {fileID: 110414, guid: bd81931d356224a498d90bbca893dbc2, type: 2}
 --- !u!114 &11434958
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -235,32 +199,6 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
---- !u!114 &11440892
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 156578}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 120
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 7
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 5
 --- !u!114 &11469364
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -298,12 +236,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!222 &22252314
-CanvasRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 156578}
 --- !u!222 &22294762
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -343,12 +275,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 22466684}
+  m_Father: {fileID: 22445988}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: 7.59959221e-07}
-  m_SizeDelta: {x: 1.20000005, y: -2.69189477e-05}
+  m_AnchoredPosition: {x: .400000215, y: -.299999237}
+  m_SizeDelta: {x: 1.20000005, y: -.900026917}
   m_Pivot: {x: 0, y: .5}
 --- !u!224 &22445988
 RectTransform:
@@ -360,6 +292,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 22421168}
   - {fileID: 22466684}
   m_Father: {fileID: 480668}
   m_RootOrder: 0
@@ -377,31 +310,13 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 22421168}
+  m_Children: []
   m_Father: {fileID: 22445988}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 0, y: -.300000012}
   m_SizeDelta: {x: 1.20000005, y: .100000001}
-  m_Pivot: {x: .5, y: .5}
---- !u!224 &22476220
-RectTransform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 156578}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .00999999978, y: .00700000022, z: 1}
-  m_Children: []
-  m_Father: {fileID: 480668}
-  m_RootOrder: 1
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 1.22003291e-06, y: -.0699730366}
-  m_SizeDelta: {x: 200, y: 142.860001}
   m_Pivot: {x: .5, y: .5}
 --- !u!1001 &100100000
 Prefab:
@@ -428,7 +343,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: speed
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_IsTrigger
@@ -436,12 +351,24 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: maxHP
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: damagePopup
       value: 
-      objectReference: {fileID: 146754, guid: 0034364dab83d874da76c2c8d412c79b, type: 2}
+      objectReference: {fileID: 110414, guid: bd81931d356224a498d90bbca893dbc2, type: 2}
+    - target: {fileID: 0}
+      propertyPath: popUpPrefab
+      value: 
+      objectReference: {fileID: 110414, guid: bd81931d356224a498d90bbca893dbc2, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 186284}

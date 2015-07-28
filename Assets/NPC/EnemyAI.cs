@@ -16,7 +16,8 @@ public class EnemyAI : MonoBehaviour {
 
 	void Start () {
 		HP = maxHP;
-		healthBar = transform.FindChild ("EnemyCanvas/HealthBG/HealthBar");
+		transform.transform.FindChild ("HealthBarCanvas").gameObject.SetActive(false);
+		healthBar = transform.FindChild ("HealthBarCanvas/HealthBar");
 		//healthBar = transform.Find ("HealthBar");
 		m_Camera = GameObject.FindGameObjectWithTag ("MainCamera");
 
@@ -28,6 +29,9 @@ public class EnemyAI : MonoBehaviour {
 
 	//Evento que salta cuando es dañado 
 	public void damaged(int damage){
+		if (HP == maxHP)
+			transform.transform.FindChild ("HealthBarCanvas").gameObject.SetActive (true);
+
 		//Calcula el daño y en caso de morir pues muere
 		HP -= damage;
 		createPopup (damage.ToString(), Color.red, 100);
