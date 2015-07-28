@@ -7,7 +7,7 @@ public class EnemyAI : MonoBehaviour {
 	public int speed;
 	public int maxHP;
 
-	public GameObject damagePopup;
+	public GameObject popUpPrefab;
 
 	private GameObject m_Camera;
 	private int HP;
@@ -20,6 +20,7 @@ public class EnemyAI : MonoBehaviour {
 		//healthBar = transform.Find ("HealthBar");
 		m_Camera = GameObject.FindGameObjectWithTag ("MainCamera");
 
+		//Start moving
 		this.GetComponent<Rigidbody> ().velocity = new Vector3 (speed, 0, 0);
 
 		updateHealthBar ();
@@ -42,12 +43,15 @@ public class EnemyAI : MonoBehaviour {
 
 	}
 
-	private void createPopup(string valor, Color col, int size){
-		GameObject temp = (GameObject)Instantiate (damagePopup,transform.position, Quaternion.identity);
+	//Creates a popUp text that despawns after a second
+	private void createPopup(string valor, Color col, int size = 100){
+		GameObject temp = (GameObject)Instantiate (popUpPrefab,transform.position, Quaternion.identity);
 		Text texto = temp.GetComponentInChildren<Text> ();
+
 		texto.color = col;
 		texto.text = valor;
 		texto.fontSize = size;
+
 		Destroy (temp, 1);
 
 	}
