@@ -41,9 +41,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b8810da414c9194c94a62975e8e1c44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minionN: {fileID: 183948, guid: 164174bd25bc2e349a7e7ee4d12c5d71, type: 2}
-  minionR: {fileID: 183948, guid: 164174bd25bc2e349a7e7ee4d12c5d71, type: 2}
-  minionG: {fileID: 183948, guid: 164174bd25bc2e349a7e7ee4d12c5d71, type: 2}
+  minionN: {fileID: 186284, guid: 90843c9ef192bb54eb6739e4099e2e27, type: 2}
+  minionR: {fileID: 186284, guid: 90843c9ef192bb54eb6739e4099e2e27, type: 2}
+  minionG: {fileID: 186284, guid: 90843c9ef192bb54eb6739e4099e2e27, type: 2}
+  texto: {fileID: 0}
   spawnWait: 1
   startWait: 2
   waveWait: 5
@@ -51,6 +52,7 @@ MonoBehaviour:
   totMN: 2
   totMR: 1
   totMG: 0
+  noWave: 1
 --- !u!114 &11442106
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -85,6 +87,8 @@ MonoBehaviour:
   pinchos: {fileID: 100000, guid: f914c1b934f6c214caf33c0f129c1e9b, type: 3}
   lava: {fileID: 161898, guid: fe167c9aa72bfde41874d4b23609b7ac, type: 2}
   mortero: {fileID: 109952, guid: cff76e885d0a2c84faec06a41922521c, type: 2}
+  Oro: {fileID: 0}
+  Mana: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -1,55 +1,49 @@
-﻿using UnityEngine;
+using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System;
-using UnityEngine.UI;
 
-public class SpawnManager : MonoBehaviour {
+public class SpawnManager : MonoBehaviour
+{
 
 	public GameObject minionN;
 	public GameObject minionR;
 	public GameObject minionG;
-
 	public Text texto;
-
-	public float spawnWait = 2, startWait = 1, waveWait = 4;
-	public int totMinions, totMN = 2, totMR = 1, totMG = 0;
-	public bool noWave = true;
-
+	private float spawnWait = 0.25f;
+	private int totMinions, totMN = 2, totMR = 1, totMG = 0;
+	private bool noWave = true, startWave = false;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 		texto.text = "Pulsa G para spawnear una nueva oleada";
 		texto.enabled = true;
 		StartCoroutine (SpawnWaves ());
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		//GUIText tC = GameObject.FindWithTag("WText").GetComponent<GUIText>() as GUIText;
-				if (noWave) {
-					texto.enabled = true;
-		
-				}
-				else
-					texto.enabled = false;
-
+	void Update ()
+	{
+		if (Input.GetKeyDown (KeyCode.G))
+			startWave = true;
 	}
 
-	void onGUI(){
-
-	}
-
-	IEnumerator SpawnWaves () {
-
-				System.Random rnd = new System.Random ();
-				//double[] valoresSpawn = {0.5, 0.3, 0.2};
-			yield return new WaitForSeconds (startWait);
-			noWave = false;
+	IEnumerator SpawnWaves ()
+	{
+		System.Random rnd = new System.Random ();
 		while (true) {
-			totMinions = totMG + totMN + totMR;
-				//var Spawn = generatePattern(valoresSpawn, totMinions);
+			if(startWave && noWave){
+				for(int i = 0; i < 10; i++){
+					texto.text = (10 - i).ToString();
+					yield return new WaitForSeconds(1);
+					}
+				texto.enabled = false;
+				noWave = false;
+				startWave = false;
+				totMinions = totMG + totMN + totMR;
 				for (int i = 0; i < totMinions; i++) {
-					Vector3 spawnPosition = new Vector3 (4, 0.3f, 10);
+				Vector3 spawnPosition = new Vector3 (4, 0.3f, 10);
 					switch (rnd.Next (10)) {
 					case 0:
 					case 1:
@@ -76,14 +70,14 @@ public class SpawnManager : MonoBehaviour {
 				totMG = totMG + 2;
 				totMN = totMN * 4;
 				totMR = totMR * 2;
+				texto.text = "Pulsa G para spawnear una nueva oleada";
+				texto.enabled = true;
 				noWave = true;
-				yield return new WaitForSeconds (waveWait);
-			noWave = false;
-
-
 			}
-		}
 
+
+		}
+	}
 
 	/*int[] generatePattern(double[] ratios, int length) { //He gitaneado la funcion, vale? NAZIS
 		int[] pattern = new int[length];
