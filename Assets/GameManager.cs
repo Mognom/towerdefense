@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class GameManager : MonoBehaviour {
@@ -11,19 +12,51 @@ public class GameManager : MonoBehaviour {
 	 */
 	private int selected;
 	public GameObject arqueros, ballesta, pinchos, lava, mortero;
+	public Text Oro, Mana;
+	private string mMax = "/100";
+	private int o = 0, m = 0;
 	
 	// Use this for initialization
 	void Start () {
 		QualitySettings.vSyncCount = 0;  // VSync must be disabled
 		Application.targetFrameRate = 300;
 		selected = 0;
+		Oro.text = o.ToString();
+		Mana.text = m.ToString() + mMax;
+		StartCoroutine (manaTemporal ());
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
-	
+
+	public void sumarOro(int o){
+		this.o += o;
+		Oro.text = this.o.ToString ();
+	}
+
+	public void sumarMana(int m){
+		if (this.m < 100) {
+			this.m += m;
+			Mana.text = this.m.ToString () + mMax;
+		}
+	}
+
+	public void restarMana(int m){
+		if (this.m > 0) {
+			this.m -= m;
+			Mana.text = this.m.ToString () + mMax;
+		}
+	}
+
+	IEnumerator manaTemporal (){
+		while (true) {
+			yield return new WaitForSeconds (1);
+			sumarMana (1);
+		}
+	}
+
 	public bool interaccionBloque(Vector3 pos){
 		
 		bool res = false;
