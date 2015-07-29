@@ -18,17 +18,17 @@ public class EnemyAI : MonoBehaviour {
 		HP = maxHP;
 		transform.transform.FindChild ("HealthBarCanvas").gameObject.SetActive(false);
 		healthBar = transform.FindChild ("HealthBarCanvas/HealthBar");
-		//healthBar = transform.Find ("HealthBar");
-		m_Camera = GameObject.FindGameObjectWithTag ("MainCamera");
+
+		//m_Camera = GameObject.FindGameObjectWithTag ("MainCamera");
 
 		//Start moving
 		this.GetComponent<Rigidbody> ().velocity = new Vector3 (speed, 0, 0);
 
-		updateHealthBar ();
 	}
 
 	//Evento que salta cuando es dañado 
 	public void damaged(int damage){
+		//Si recibe daño teniendo la vida al maximo activa la barra de vida (solo sucede una vez)
 		if (HP == maxHP)
 			transform.transform.FindChild ("HealthBarCanvas").gameObject.SetActive (true);
 
@@ -36,6 +36,7 @@ public class EnemyAI : MonoBehaviour {
 		HP -= damage;
 		createPopup (damage.ToString(), Color.red, 100);
 
+		//sa muerto -> Oro y muerte
 		if (HP <= 0) {
 			createPopup("+10g", Color.yellow, 130, true);
 			Destroy (this.gameObject);
@@ -52,17 +53,20 @@ public class EnemyAI : MonoBehaviour {
 		GameObject temp = (GameObject)Instantiate (popUpPrefab,transform.position, Quaternion.identity);
 		Text texto = temp.GetComponentInChildren<Text> ();
 
+		//Configura el popup
 		texto.color = col;
 		texto.text = valor;
 		texto.fontSize = size;
 
+
+		//Elige la animacion a reproducir en funcion de si era para oro o no
 		if (gold) {
 			texto.GetComponent<Animator> ().SetTrigger ("gold");
-			print ("entra");
 		}
 		else
 			texto.GetComponent<Animator> ().SetTrigger("damage");
 
+		//Destruye el popup un segundo despues (lo que dura la animacion)
 		Destroy (temp, 1);
 
 	}
