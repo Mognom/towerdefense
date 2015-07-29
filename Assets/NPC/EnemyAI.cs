@@ -37,7 +37,7 @@ public class EnemyAI : MonoBehaviour {
 		createPopup (damage.ToString(), Color.red, 100);
 
 		if (HP <= 0) {
-			createPopup("+10g", Color.yellow, 130);
+			createPopup("+10g", Color.yellow, 130, true);
 			Destroy (this.gameObject);
 			return;
 		}
@@ -48,13 +48,20 @@ public class EnemyAI : MonoBehaviour {
 	}
 
 	//Creates a popUp text that despawns after a second
-	private void createPopup(string valor, Color col, int size = 100){
+	private void createPopup(string valor, Color col, int size = 100, bool gold = false){
 		GameObject temp = (GameObject)Instantiate (popUpPrefab,transform.position, Quaternion.identity);
 		Text texto = temp.GetComponentInChildren<Text> ();
 
 		texto.color = col;
 		texto.text = valor;
 		texto.fontSize = size;
+
+		if (gold) {
+			texto.GetComponent<Animator> ().SetTrigger ("gold");
+			print ("entra");
+		}
+		else
+			texto.GetComponent<Animator> ().SetTrigger("damage");
 
 		Destroy (temp, 1);
 
