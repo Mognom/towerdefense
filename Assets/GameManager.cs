@@ -37,13 +37,17 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void sumarMana(int m){
-		this.m += m;
-		Mana.text = this.m.ToString() + mMax;
+		if (this.m < 100) {
+			this.m += m;
+			Mana.text = this.m.ToString () + mMax;
+		}
 	}
 
 	public void restarMana(int m){
-		this.m -= m;
-		Mana.text = this.m.ToString() + mMax;
+		if (this.m > 0) {
+			this.m -= m;
+			Mana.text = this.m.ToString () + mMax;
+		}
 	}
 
 	IEnumerator manaTemporal (){
