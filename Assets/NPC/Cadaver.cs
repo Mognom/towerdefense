@@ -11,6 +11,7 @@ public class Cadaver : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		this.transform.Rotate (new Vector3 (90, 90));
 		gM = GameObject.Find ("GameManager");
 		spawnM = gM.GetComponent<SpawnManager> ();
 		spawnM.saMorio();
@@ -18,7 +19,7 @@ public class Cadaver : MonoBehaviour {
 		gameM.sumarOro (10);
 		muerte = this.GetComponentInParent<AudioSource> ();
 		muerte.Play ();
-		Invoke ("destructor", 2f);
+		Invoke ("destructor", 2f); //Desctructor llamado a los 2 segundos para que de tiempo a terminar todo
 	}
 	
 	// Update is called once per frame

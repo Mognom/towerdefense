@@ -12,7 +12,6 @@ public class XMLReader : MonoBehaviour {
 	public int codIdioma;
 
 	string NuevaOleada;
-	string button2;
 
 	List<Dictionary<string, string>> lenguajes = new List<Dictionary<string, string>>();
 	Dictionary<string, string> obj;
@@ -24,12 +23,10 @@ public class XMLReader : MonoBehaviour {
 	void Update(){
 		lenguajes [codIdioma].TryGetValue ("Name", out idioma);
 		lenguajes [codIdioma].TryGetValue ("nuevaOleada", out NuevaOleada);
-		lenguajes [codIdioma].TryGetValue ("button2", out button2);
 	}
 
 	void OnGUI(){
 		GUILayout.Button (NuevaOleada);
-		GUILayout.Button (button2);
 	}
 
 	void lector(){
@@ -45,8 +42,6 @@ public class XMLReader : MonoBehaviour {
 				if(value.Name == "Name")
 					obj.Add(value.Name, value.InnerText);
 				if(value.Name == "nuevaOleada")
-					obj.Add(value.Name, value.InnerText);
-				if(value.Name == "button2")
 					obj.Add(value.Name, value.InnerText);
 			}
 			lenguajes.Add(obj);

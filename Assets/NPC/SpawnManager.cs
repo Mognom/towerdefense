@@ -18,8 +18,10 @@ public class SpawnManager : MonoBehaviour
 	public GameObject minionR;
 	public GameObject minionG;
 	public Text texto;
+	private XMLReader xml;
 	private float spawnWait = 0.25f;
-	private int totMN = 3, totMR = 1, totMG = 0, minionsVivos, minionsSpawneables = 1, wave = 0;
+	private int minionsVivos, minionsSpawneables = 1;
+	private int totMN = 3, totMR = 1, totMG = 0, wave = 0;
 	private bool noWave = true, startWave = false;
 	private int[] patronMinions;
 	private Vector3 spawnPosition;
@@ -27,8 +29,7 @@ public class SpawnManager : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		texto.text = "Pulsa G para spawnear una nueva oleada";
-		texto.enabled = true;
+		xml = this.GetComponentInChildren<XMLReader> ();
 		print (minionsVivos);
 		print (minionsSpawneables);
 		StartCoroutine ("SpawnWaves");
@@ -46,6 +47,9 @@ public class SpawnManager : MonoBehaviour
 
 	IEnumerator SpawnWaves ()
 	{
+		yield return new WaitForSeconds (0.1f);
+		texto.text = xml.getNuevaOleada();
+		texto.enabled = true;
 		print ("He entrado en la corrutina");
 		patronMinions = prepararWave ();
 		while (true) {
@@ -69,6 +73,12 @@ public class SpawnManager : MonoBehaviour
 						Instantiate (minionG, spawnPosition, minionG.transform.rotation);
 						print ("Gordo");
 						break;
+					case 3:
+						print ("Tiempo");
+						yield return new WaitForSeconds(2f);
+						minionsVivos--;
+						minionsSpawneables++;
+						break;
 					default:
 						print ("ID del minion no valida");
 						minionsVivos--;
@@ -77,8 +87,6 @@ public class SpawnManager : MonoBehaviour
 					}
 					minionsVivos++;
 					minionsSpawneables--;
-					if(minionsVivos>5)
-						yield return new WaitForSeconds(2f);
 					yield return new WaitForSeconds (spawnWait);
 				}
 
@@ -96,7 +104,7 @@ public class SpawnManager : MonoBehaviour
 			print (noWave);
 			startWave = false;
 			print (startWave);
-			texto.text = "Pulsa G para spawnear una nueva oleada";
+			texto.text = xml.getNuevaOleada();
 			texto.enabled = true;
 			totMN = totMN * 3;
 			totMR = totMR + wave * 3;
@@ -120,6 +128,8 @@ public class SpawnManager : MonoBehaviour
 			premade.Add (1);
 		for (i = 0; i < totMG; i++)
 			premade.Add (2);
+		for (i = 0; i < minionsSpawneables/6 - 1; i++)
+			premade.Add (3);
 		return premade.OrderBy (n => Guid.NewGuid ()).ToArray ();
 	}
 

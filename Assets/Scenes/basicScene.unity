@@ -314,7 +314,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 465096, guid: 415ce0488c08107439cbdc12f61a284d, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11449696, guid: 415ce0488c08107439cbdc12f61a284d, type: 2}
       propertyPath: Oro
@@ -328,6 +328,10 @@ Prefab:
       propertyPath: texto
       value: 
       objectReference: {fileID: 927020410}
+    - target: {fileID: 11437690, guid: 415ce0488c08107439cbdc12f61a284d, type: 2}
+      propertyPath: xml
+      value: 
+      objectReference: {fileID: 1189884801}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 415ce0488c08107439cbdc12f61a284d, type: 2}
   m_IsPrefabParent: 0
@@ -462,7 +466,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 66e9a2561aedf324392b235f938de60a, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: .300000012
   m_Pitch: 1
   Loop: 1
