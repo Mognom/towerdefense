@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Audio;
 using System.Collections;
 
 public class EnemyAI : MonoBehaviour {
@@ -9,27 +8,21 @@ public class EnemyAI : MonoBehaviour {
 	public int maxHP;
 
 	public GameObject popUpPrefab;
+	public GameObject cadaver;
 
 	private GameObject m_Camera;
 	private int HP;
 	private Transform healthBar;
 	private Transform canvas;
 
-	private GameObject gM;
-	private SpawnManager spawnM;
-
-	public AudioSource[] audios;
-
 	void Start () {
 		HP = maxHP;
 		transform.transform.FindChild ("HealthBarCanvas").gameObject.SetActive(false);
 		healthBar = transform.FindChild ("HealthBarCanvas/HealthBar");
 
-		audios = this.GetComponentsInParent<AudioSource> ();
-
 		//m_Camera = GameObject.FindGameObjectWithTag ("MainCamera");
-		gM = GameObject.Find ("GameManager");
-		spawnM = gM.GetComponent<SpawnManager> ();
+//		gM = GameObject.Find ("GameManager");
+//		spawnM = gM.GetComponent<SpawnManager> ();
 
 
 		//Start moving
@@ -51,9 +44,7 @@ public class EnemyAI : MonoBehaviour {
 		if (HP <= 0) {
 			createPopup("+10g", Color.yellow, 130, true);
 			Destroy (this.gameObject);
-			spawnM.saMorio();
-			gM.GetComponent<GameManager>().sumarOro(10);
-			StartCoroutine(sonidoMuerte());
+			Instantiate(cadaver, this.gameObject.transform.position ,this.gameObject.transform.rotation);
 			return;
 		}
 
@@ -97,11 +88,5 @@ public class EnemyAI : MonoBehaviour {
 	public void turn(){
 		//canvas.LookAt(canvas.position + m_Camera.transform.rotation * Vector3.back,m_Camera.transform.rotation * Vector3.up);
 
-	}
-
-	IEnumerator sonidoMuerte(){
-		audios [0].enabled = true;
-		audios [0].Play ();
-		yield break;
 	}
 }
