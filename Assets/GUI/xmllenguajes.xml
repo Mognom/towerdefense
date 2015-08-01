@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<lenguajes>
+
+	<lenguage>
+		<Name>English</Name>
+		<button1>Play</button1>
+		<nuevaOleada>Press G to spawn a wave</nuevaOleada>
+		<button2>Exit</button2>
+	</lenguage>
+	
+	<lenguage>
+		<Name>Spanish</Name>
+		<button1>Jugar</button1>
+		<nuevaOleada>Pulsa G para invocar una oleada</nuevaOleada>
+		<button2>Salir</button2>
+	</lenguage>
+	
+</lenguajes>
