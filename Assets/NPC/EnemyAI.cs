@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 using System.Collections;
 
 public class EnemyAI : MonoBehaviour {
@@ -17,10 +18,14 @@ public class EnemyAI : MonoBehaviour {
 	private GameObject gM;
 	private SpawnManager spawnM;
 
+	public AudioSource[] audios;
+
 	void Start () {
 		HP = maxHP;
 		transform.transform.FindChild ("HealthBarCanvas").gameObject.SetActive(false);
 		healthBar = transform.FindChild ("HealthBarCanvas/HealthBar");
+
+		audios = this.GetComponentsInParent<AudioSource> ();
 
 		//m_Camera = GameObject.FindGameObjectWithTag ("MainCamera");
 		gM = GameObject.Find ("GameManager");
@@ -48,6 +53,7 @@ public class EnemyAI : MonoBehaviour {
 			Destroy (this.gameObject);
 			spawnM.saMorio();
 			gM.GetComponent<GameManager>().sumarOro(10);
+			StartCoroutine(sonidoMuerte());
 			return;
 		}
 
@@ -91,5 +97,11 @@ public class EnemyAI : MonoBehaviour {
 	public void turn(){
 		//canvas.LookAt(canvas.position + m_Camera.transform.rotation * Vector3.back,m_Camera.transform.rotation * Vector3.up);
 
+	}
+
+	IEnumerator sonidoMuerte(){
+		audios [0].enabled = true;
+		audios [0].Play ();
+		yield break;
 	}
 }
