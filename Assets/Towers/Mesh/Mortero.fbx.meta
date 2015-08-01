@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: cefffcf3206f5c04aadb28b40ff60987
-timeCreated: 1437906165
+guid: 787ca4d1e28b2cd4a8fdacf40f37271a
+timeCreated: 1438440359
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
@@ -15,10 +15,10 @@ ModelImporter:
     2300002: Sphere
     3300000: Cube
     3300002: Sphere
-    4300000: Cube
-    4300002: Sphere
+    4300000: Sphere
+    4300002: Cube
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
   animations:

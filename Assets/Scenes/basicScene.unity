@@ -328,6 +328,14 @@ Prefab:
       propertyPath: texto
       value: 
       objectReference: {fileID: 927020410}
+    - target: {fileID: 11449696, guid: 415ce0488c08107439cbdc12f61a284d, type: 2}
+      propertyPath: ballesta
+      value: 
+      objectReference: {fileID: 100000, guid: cd84f11427b2ce945b0b2dfe5c5ad146, type: 3}
+    - target: {fileID: 11449696, guid: 415ce0488c08107439cbdc12f61a284d, type: 2}
+      propertyPath: mortero
+      value: 
+      objectReference: {fileID: 100002, guid: 787ca4d1e28b2cd4a8fdacf40f37271a, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 415ce0488c08107439cbdc12f61a284d, type: 2}
   m_IsPrefabParent: 0
