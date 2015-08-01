@@ -47,14 +47,14 @@ public class SpawnManager : MonoBehaviour
 	IEnumerator SpawnWaves ()
 	{
 		print ("He entrado en la corrutina");
-
+		patronMinions = prepararWave ();
 		while (true) {
 			if (startWave && noWave) {
 				print ("Spawneando");
 				noWave = false;
-				patronMinions = prepararWave ();
-				StartCoroutine (cuentaAtras (10));
-				yield return new WaitForSeconds (10); //Espera a que se ejecute la corrutina de cuenta atras
+
+				StartCoroutine (cuentaAtras (5));
+				yield return new WaitForSeconds (5); //Espera a que se ejecute la corrutina de cuenta atras
 				for (int i = 0; i < patronMinions.Length; i++) {
 					switch (patronMinions [i]) {
 					case 0:
@@ -77,13 +77,16 @@ public class SpawnManager : MonoBehaviour
 					}
 					minionsVivos++;
 					minionsSpawneables--;
+					if(minionsVivos>5)
+						yield return new WaitForSeconds(2f);
 					yield return new WaitForSeconds (spawnWait);
 				}
+
 			}
 			finWave ();
 			yield return null;
 		}
-		yield break;
+//		yield break;
 	}
 
 	void finWave ()
@@ -98,13 +101,14 @@ public class SpawnManager : MonoBehaviour
 			totMN = totMN * 3;
 			totMR = totMR + wave * 3;
 			totMG = totMG + 2;
+			patronMinions = prepararWave ();
 		}
 	}
 
 	int[] prepararWave ()
 	{
 		print ("Preparando oleada");
-		texto.enabled = false;
+//		texto.enabled = false;
 		spawnPosition = spawnPositionSelect ();
 		wave++;
 		int i;

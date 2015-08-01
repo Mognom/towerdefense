@@ -47,6 +47,7 @@ public class EnemyAI : MonoBehaviour {
 			createPopup("+10g", Color.yellow, 130, true);
 			Destroy (this.gameObject);
 			spawnM.saMorio();
+			gM.GetComponent<GameManager>().sumarOro(10);
 			return;
 		}
 

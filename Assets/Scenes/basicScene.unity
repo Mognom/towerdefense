@@ -447,7 +447,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   diccionario: {fileID: 4900000, guid: 6b5c4008d6ad346439a60de2905c13cd, type: 3}
   idioma: 
-  codIdoma: 0
+  codIdioma: 0
 --- !u!1001 &2001883289
 Prefab:
   m_ObjectHideFlags: 0

@@ -9,9 +9,9 @@ public class XMLReader : MonoBehaviour {
 	public TextAsset diccionario;
 
 	public string idioma;
-	public int codIdoma;
+	public int codIdioma;
 
-	string button1;
+	string NuevaOleada;
 	string button2;
 
 	List<Dictionary<string, string>> lenguajes = new List<Dictionary<string, string>>();
@@ -22,13 +22,13 @@ public class XMLReader : MonoBehaviour {
 	}
 
 	void Update(){
-		lenguajes [codIdoma].TryGetValue ("Name", out idioma);
-		lenguajes [codIdoma].TryGetValue ("button1", out button1);
-		lenguajes [codIdoma].TryGetValue ("button2", out button2);
+		lenguajes [codIdioma].TryGetValue ("Name", out idioma);
+		lenguajes [codIdioma].TryGetValue ("nuevaOleada", out NuevaOleada);
+		lenguajes [codIdioma].TryGetValue ("button2", out button2);
 	}
 
 	void OnGUI(){
-		GUILayout.Button (button1);
+		GUILayout.Button (NuevaOleada);
 		GUILayout.Button (button2);
 	}
 
@@ -44,12 +44,24 @@ public class XMLReader : MonoBehaviour {
 			foreach(XmlNode value in Contenido){
 				if(value.Name == "Name")
 					obj.Add(value.Name, value.InnerText);
-				if(value.Name == "button1")
+				if(value.Name == "nuevaOleada")
 					obj.Add(value.Name, value.InnerText);
 				if(value.Name == "button2")
 					obj.Add(value.Name, value.InnerText);
 			}
 			lenguajes.Add(obj);
 		}
+	}
+
+	public string getNuevaOleada(){
+		return NuevaOleada;
+	}
+
+	public int getCodIdioma(){
+		return codIdioma;
+	}
+
+	public void setCodIdioma(int codIdioma){
+		this.codIdioma = codIdioma;
 	}
 }
