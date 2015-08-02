@@ -82,3 +82,31 @@ public class SpawningPools : MonoBehaviour {
 		}
 	}
 }
+
+//SUGAAAAAAAAAAAAR
+public static class SpawnPoolExtensions{
+
+	//SPAWN EXTENSIONS
+	public static GameObject spawn(this GameObject prefab, Vector3 position, Quaternion rotation){
+		return SpawningPools.spawn(prefab, position, rotation);
+	}
+
+	public static GameObject spawn(this GameObject prefab, Vector3 position){
+		return SpawningPools.spawn(prefab, position, prefab.transform.rotation);
+	}
+
+	public static GameObject spawn(this GameObject prefab){
+		return SpawningPools.spawn(prefab, prefab.transform.position, prefab.transform.rotation);
+	}
+
+	public static GameObject spawn(this GameObject prefab, Quaternion rotation){
+		return SpawningPools.spawn(prefab, prefab.transform.position, rotation);
+	}
+
+	//RECYCLE EXTENSIONS
+
+	public static void recycle(this GameObject gObject){
+		SpawningPools.recycle (gObject);
+
+	}
+}
