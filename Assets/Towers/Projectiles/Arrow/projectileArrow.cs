@@ -11,7 +11,7 @@ public class projectileArrow : Projectile {//Projectile {
 	// Update is called once per frame
 	void Update () {
 		if (objective == null) {
-			Destroy (this.gameObject);
+			this.gameObject.recycle();
 			return;
 		}
 
@@ -30,7 +30,7 @@ public class projectileArrow : Projectile {//Projectile {
 	void OnTriggerEnter(Collider other){
 		if (other.gameObject == objective) {
 			other.gameObject.GetComponent<EnemyAI>().damaged(1);
-			Destroy (this.gameObject);
+			this.gameObject.recycle();
 		}
 
 	}

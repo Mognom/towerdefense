@@ -11,6 +11,7 @@ GameObject:
   - 114: {fileID: 11449696}
   - 114: {fileID: 11442106}
   - 114: {fileID: 11437690}
+  - 114: {fileID: 11495902}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -81,6 +82,20 @@ MonoBehaviour:
   mortero: {fileID: 175054, guid: c18e5676f4f2d204e86849fab6188f3e, type: 2}
   Oro: {fileID: 11401796, guid: e73159ab16e9ceb469b27e814204d952, type: 2}
   Mana: {fileID: 11424176, guid: e73159ab16e9ceb469b27e814204d952, type: 2}
+--- !u!114 &11495902
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 127844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 349ac35d021bf6d4bb2a573fe4d8fbd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  diccionario: {fileID: 4900000, guid: 6b5c4008d6ad346439a60de2905c13cd, type: 3}
+  idioma: Spanish
+  codIdioma: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -135,6 +150,10 @@ Prefab:
       value: 
       objectReference: {fileID: 11424176, guid: e73159ab16e9ceb469b27e814204d952,
         type: 2}
+    - target: {fileID: 0}
+      propertyPath: idioma
+      value: Spanish
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 127844}
