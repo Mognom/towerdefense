@@ -8,14 +8,12 @@ public class EnemyAI : MonoBehaviour {
 	public int maxHP;
 
 	public GameObject popUpPrefab;
+	public GameObject cadaver;
 
 	private GameObject m_Camera;
 	private int HP;
 	private Transform healthBar;
 	private Transform canvas;
-
-	private GameObject gM;
-	private SpawnManager spawnM;
 
 	void Start () {
 		HP = maxHP;
@@ -23,8 +21,8 @@ public class EnemyAI : MonoBehaviour {
 		healthBar = transform.FindChild ("HealthBarCanvas/HealthBar");
 
 		//m_Camera = GameObject.FindGameObjectWithTag ("MainCamera");
-		gM = GameObject.Find ("GameManager");
-		spawnM = gM.GetComponent<SpawnManager> ();
+//		gM = GameObject.Find ("GameManager");
+//		spawnM = gM.GetComponent<SpawnManager> ();
 
 
 		//Start moving
@@ -46,7 +44,7 @@ public class EnemyAI : MonoBehaviour {
 		if (HP <= 0) {
 			createPopup("+10g", Color.yellow, 130, true);
 			Destroy (this.gameObject);
-			spawnM.saMorio();
+			Instantiate(cadaver, this.gameObject.transform.position ,this.gameObject.transform.rotation);
 			return;
 		}
 

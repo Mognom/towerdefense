@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<lenguajes>
+	
+	<lenguage>
+		<Name>Spanish</Name>
+		<nuevaOleada>Pulsa G para invocar una oleada</nuevaOleada>
+	</lenguage>
+	
+		<lenguage>
+		<Name>English</Name>
+		<nuevaOleada>Press G to spawn a wave</nuevaOleada>
+	</lenguage>
+	
+</lenguajes>
