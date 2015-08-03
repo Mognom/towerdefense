@@ -40,9 +40,7 @@ public class TowerTargetBehaviour : MonoBehaviour {
 			//Comprueba si puede atacar
 			if(elapsedCD >= attackSecCD){
 				//Crea el projectil asociado al tipo de torre y le da su objetivo
-				actual = (GameObject) Instantiate(projectile,transform.position+ new Vector3(0,1,0), projectile.transform.rotation);
-				if(actual.GetComponent<Projectile>() == null)
-					print ("whut");
+				actual = projectile.spawn(transform.position+ new Vector3(0,1,0));
 				actual.GetComponent<Projectile>().setObjective(target);
 				//Empieza el CoolDown
 				elapsedCD = 0;

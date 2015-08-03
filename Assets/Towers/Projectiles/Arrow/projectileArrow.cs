@@ -4,7 +4,6 @@ using System.Collections;
 public class projectileArrow : Projectile {//Projectile {
 	
 	// Use this for initialization
-	private int i =0;
 	void Start () {
 		
 	}
