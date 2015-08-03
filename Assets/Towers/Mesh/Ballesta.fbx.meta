@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: cd84f11427b2ce945b0b2dfe5c5ad146
-timeCreated: 1438440619
+timeCreated: 1438613414
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
@@ -18,7 +18,7 @@ ModelImporter:
     4300000: Cone
     4300002: Plane
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
   animations:

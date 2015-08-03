@@ -75,4 +75,9 @@ public class TowerTargetBehaviour : MonoBehaviour {
 		}
 		return result;
 	}
+
+	public GameObject getTarget(){
+		return target;
+
+	}
 }
