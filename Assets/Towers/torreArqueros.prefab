@@ -117,6 +117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemiesTag: Enemy
   range: 6
+  damage: 1
   attackSecCD: 2
   projectile: {fileID: 153246, guid: ad1fcc9444907514ebf961a40d13c101, type: 2}
 --- !u!114 &11484260
@@ -182,6 +183,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_OrthographicSize
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: damage
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

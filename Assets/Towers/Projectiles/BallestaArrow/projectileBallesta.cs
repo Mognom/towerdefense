@@ -32,7 +32,7 @@ public class projectileBallesta : Projectile {
 	
 	void OnTriggerEnter(Collider other){
 		if (other.gameObject.tag == "Enemy") {
-			other.gameObject.GetComponent<EnemyAI>().damaged(1);
+			other.gameObject.GetComponent<EnemyAI>().damaged(damage);
 			//this.gameObject.recycle();
 		}
 		

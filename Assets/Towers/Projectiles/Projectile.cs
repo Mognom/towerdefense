@@ -5,6 +5,7 @@ public abstract class Projectile : MonoBehaviour {
 
 	// Use this for initialization
 	protected GameObject objective;
+	protected int damage;
 	public float speed;
 
 	void Start (){}
@@ -13,4 +14,9 @@ public abstract class Projectile : MonoBehaviour {
 	void Update (){}
 
 	public abstract void setObjective(GameObject o);
+
+	public void setDamage(int dmg){
+		damage = dmg;
+
+	}
 }

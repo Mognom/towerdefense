@@ -6,6 +6,7 @@ public class TowerTargetBehaviour : MonoBehaviour {
 	//Detection
 	public string enemiesTag = "Enemy";
 	public float range = 6;
+	public int damage;
 	
 	//Attack speed
 	public float attackSecCD = 2;
@@ -41,7 +42,9 @@ public class TowerTargetBehaviour : MonoBehaviour {
 			if(elapsedCD >= attackSecCD){
 				//Crea el projectil asociado al tipo de torre y le da su objetivo
 				actual = projectile.spawn(transform.position+ new Vector3(0,1,0));
-				actual.GetComponent<Projectile>().setObjective(target);
+				Projectile pro = actual.GetComponent<Projectile>();
+				pro.setObjective(target);
+				pro.setDamage(damage);
 				//Empieza el CoolDown
 				elapsedCD = 0;
 			}
