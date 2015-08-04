@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arqueros: {fileID: 175054, guid: c18e5676f4f2d204e86849fab6188f3e, type: 2}
-  ballesta: {fileID: 175054, guid: c18e5676f4f2d204e86849fab6188f3e, type: 2}
+  ballesta: {fileID: 197476, guid: 8f0f6cdb6d7dd1f499c3813dc501b51a, type: 2}
   pinchos: {fileID: 100000, guid: f914c1b934f6c214caf33c0f129c1e9b, type: 3}
   lava: {fileID: 161898, guid: fe167c9aa72bfde41874d4b23609b7ac, type: 2}
   mortero: {fileID: 175054, guid: c18e5676f4f2d204e86849fab6188f3e, type: 2}
@@ -130,7 +130,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: ballesta
       value: 
-      objectReference: {fileID: 175054, guid: c18e5676f4f2d204e86849fab6188f3e, type: 2}
+      objectReference: {fileID: 197476, guid: 8f0f6cdb6d7dd1f499c3813dc501b51a, type: 2}
     - target: {fileID: 0}
       propertyPath: arqueros
       value: 
