@@ -7,7 +7,10 @@ public class GameManager : MonoBehaviour {
 	/*
 	 * 0 -> nada 
 	 * 1 -> arquero
-	 * ...
+	 * 2 -> ballesta
+	 * 3 -> spikes
+	 * 4 -> lava
+	 * 5 -> mortero
 	 * 
 	 */
 	private int selected;
@@ -91,8 +94,17 @@ public class GameManager : MonoBehaviour {
 		}
 		
 		return res;
-		
-		
+	}
+
+	public bool interaccionPath(Vector3 pos){
+
+		if (selected == 3) {
+			Instantiate (pinchos, pos + new Vector3 (0f, 0.0f, 0f), pinchos.transform.rotation);
+			selected = 0;
+			return true;
+		}
+
+		return false;
 	}
 
 	public void setSelected(int id){
