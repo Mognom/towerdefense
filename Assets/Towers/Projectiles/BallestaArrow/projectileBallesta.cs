@@ -5,9 +5,6 @@ public class projectileBallesta : Projectile {
 
 	// Use this for initialization
 	private Vector3 destino;
-	void Start () {
-		
-	}
 	
 	// Update is called once per frame
 	void Update () {
