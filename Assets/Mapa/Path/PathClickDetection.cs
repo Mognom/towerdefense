@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PathClickDetection : MonoBehaviour {
 
-	public GameManager gm;
+	public LevelManager lm;
 	private bool used;
 	
 	void Start () {
@@ -13,7 +13,7 @@ public class PathClickDetection : MonoBehaviour {
 	
 	void OnMouseOver(){
 		if (!used && Input.GetMouseButtonDown (0)) {
-			used = gm.interaccionPath(transform.position);
+			used = lm.interaccionPath(transform.position);
 			
 		}
 	}

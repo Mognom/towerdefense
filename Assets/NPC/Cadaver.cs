@@ -6,16 +6,16 @@ public class Cadaver : MonoBehaviour {
 
 	private GameObject gM;
 	private SpawnManager spawnM;
-	private GameManager gameM;
+	private LevelManager gameM;
 	private AudioSource muerte;
 
 	// Use this for initialization
 	void Start () {
 		this.transform.Rotate (new Vector3 (90, 90));
-		gM = GameObject.Find ("GameManager");
+		gM = GameObject.Find ("LevelManager");
 		spawnM = gM.GetComponent<SpawnManager> ();
 		spawnM.saMorio();
-		gameM = gM.GetComponent<GameManager> ();
+		gameM = gM.GetComponent<LevelManager> ();
 		gameM.sumarOro (10);
 		muerte = this.GetComponentInParent<AudioSource> ();
 		muerte.Play ();

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class blockClickDetection : MonoBehaviour {
 	
-	public GameManager gm;
+	public LevelManager lm;
 	private bool used;
 
 	void Start () {
@@ -13,7 +13,7 @@ public class blockClickDetection : MonoBehaviour {
 
 	void OnMouseOver(){
 		if (!used && Input.GetMouseButtonDown (0)) {
-			used = gm.interaccionBloque(transform.position);
+			used = lm.interaccionBloque(transform.position);
 
 		}
 	}
