@@ -32,7 +32,7 @@ public class ProjectileMortero : Projectile {
 			}
 		}
 		else {
-			if (objective == null || boom){
+			if (!objective.activeSelf || boom){
 				this.gameObject.recycle();
 				return;
 			}

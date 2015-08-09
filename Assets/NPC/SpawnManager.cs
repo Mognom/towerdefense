@@ -68,15 +68,15 @@ public class SpawnManager : MonoBehaviour
 				for (int i = 0; i < patronMinions.Length; i++) {
 					switch (patronMinions [i]) {
 					case 0:
-						Instantiate (minionN, spawnPosition, minionN.transform.rotation);
+						minionN.spawn (spawnPosition);
 						print ("Normal");
 						break;
 					case 1:
-						Instantiate (minionR, spawnPosition, minionR.transform.rotation);
+						minionR.spawn (spawnPosition);
 						print ("Rapido");
 						break;
 					case 2:
-						Instantiate (minionG, spawnPosition, minionG.transform.rotation);
+						minionG.spawn(spawnPosition);
 						print ("Gordo");
 						break;
 					case 3:

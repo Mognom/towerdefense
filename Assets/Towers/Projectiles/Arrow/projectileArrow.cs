@@ -10,7 +10,7 @@ public class projectileArrow : Projectile {//Projectile {
 	
 	// Update is called once per frame
 	void Update () {
-		if (objective == null) {
+		if (!objective.activeSelf) {
 			this.gameObject.recycle();
 			return;
 		}

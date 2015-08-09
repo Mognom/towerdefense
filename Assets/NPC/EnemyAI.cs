@@ -44,7 +44,7 @@ public class EnemyAI : MonoBehaviour {
 		//sa muerto -> Oro y muerte
 		if (HP <= 0) {
 			createPopup("+10g", Color.yellow, 130, true);
-			Destroy (this.gameObject);
+			this.gameObject.recycle();
 			levelManager.sumarOro(oro);
 			Instantiate(cadaver, this.gameObject.transform.position ,this.gameObject.transform.rotation);
 			return;

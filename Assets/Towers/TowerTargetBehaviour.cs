@@ -35,8 +35,8 @@ public class TowerTargetBehaviour : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		//Search for a new target
-		if (target == null) 
+
+		if (target == null || target.activeSelf == false) 
 			target = findClosest ();
 		
 		//Pierde el objetivo -> Busca uno nuevo
