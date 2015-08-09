@@ -19,16 +19,19 @@ public class EnemyAI : MonoBehaviour {
 	private Transform healthBar;
 	private Transform canvas;
 
+	//Se llama una unica vez, "cachea" todas las busquedas necesarias para no tener que hacerlas nunca mais
 	void Start () {
-		HP = maxHP;
-		transform.transform.FindChild ("HealthBarCanvas").gameObject.SetActive(false);
+		canvas = transform.transform.FindChild ("HealthBarCanvas");
 		healthBar = transform.FindChild ("HealthBarCanvas/HealthBar");
-
 		levelManager = GameObject.Find ("LevelManager").GetComponent<LevelManager>();
+	}
 
+	//Configura el NPC para su vida actual :S
+	void OnEnable(){
 		//Start moving
 		this.GetComponent<Rigidbody> ().velocity = new Vector3 (speed, 0, 0);
-
+		HP = maxHP;
+		canvas.gameObject.SetActive(false);
 	}
 
 	//Evento que salta cuando es dañado 
@@ -83,7 +86,6 @@ public class EnemyAI : MonoBehaviour {
 	private void updateHealthBar(){
 		float health = (float)HP / maxHP;
 		healthBar.localScale = new Vector3(health,healthBar.localScale.y , healthBar.localScale.z);
-
 	}
 
 	//Cuando rota tiene que actualizarse la barra de vida para que mire a la camara
