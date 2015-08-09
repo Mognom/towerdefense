@@ -17,7 +17,9 @@ public class SpawnManager : MonoBehaviour
 	public GameObject minionN;
 	public GameObject minionR;
 	public GameObject minionG;
-	public Text texto;
+
+	private Text waveText;
+
 	private XMLReader xml;
 	private float spawnWait = 0.25f;
 	private int minionsVivos, minionsSpawneables = 1;
@@ -29,7 +31,11 @@ public class SpawnManager : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
+		//CACHEEE FTW
+		waveText = GameObject.Find("HUD").GetComponentsInChildren<Text>()[2];
 		xml = this.GetComponentInChildren<XMLReader> ();
+
+
 		print (minionsVivos);
 		print (minionsSpawneables);
 		StartCoroutine ("SpawnWaves");
@@ -48,8 +54,8 @@ public class SpawnManager : MonoBehaviour
 	IEnumerator SpawnWaves ()
 	{
 		yield return new WaitForSeconds (0.1f);
-		texto.text = xml.getNuevaOleada();
-		texto.enabled = true;
+		waveText.text = xml.getNuevaOleada();
+		waveText.enabled = true;
 		print ("He entrado en la corrutina");
 		patronMinions = prepararWave ();
 		while (true) {
@@ -104,8 +110,8 @@ public class SpawnManager : MonoBehaviour
 			print (noWave);
 			startWave = false;
 			print (startWave);
-			texto.text = xml.getNuevaOleada();
-			texto.enabled = true;
+			waveText.text = xml.getNuevaOleada();
+			waveText.enabled = true;
 			totMN = totMN * 3;
 			totMR = totMR + wave * 3;
 			totMG = totMG + 2;
@@ -163,12 +169,12 @@ public class SpawnManager : MonoBehaviour
 
 	IEnumerator cuentaAtras (int veces)
 	{
-		texto.enabled = true;
+		waveText.enabled = true;
 		for (int i = 0; i<veces; i++) {
-			texto.text = (veces - i).ToString ();
+			waveText.text = (veces - i).ToString ();
 			yield return new WaitForSeconds (1);
 		}
-		texto.enabled = false;
+		waveText.enabled = false;
 		yield return null;
 	}
 }

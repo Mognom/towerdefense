@@ -45,7 +45,6 @@ MonoBehaviour:
   minionN: {fileID: 186284, guid: 90843c9ef192bb54eb6739e4099e2e27, type: 2}
   minionR: {fileID: 186284, guid: 90843c9ef192bb54eb6739e4099e2e27, type: 2}
   minionG: {fileID: 186284, guid: 90843c9ef192bb54eb6739e4099e2e27, type: 2}
-  texto: {fileID: 11470778, guid: e73159ab16e9ceb469b27e814204d952, type: 2}
 --- !u!114 &11442106
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -75,13 +74,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d8205fe4b0b95f489afb0772fb572e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  oroInicial: 500
   arqueros: {fileID: 175054, guid: c18e5676f4f2d204e86849fab6188f3e, type: 2}
   ballesta: {fileID: 197476, guid: 8f0f6cdb6d7dd1f499c3813dc501b51a, type: 2}
   pinchos: {fileID: 190216, guid: 255d28b3c9e69054ba3616c952b590fa, type: 2}
   lava: {fileID: 161898, guid: fe167c9aa72bfde41874d4b23609b7ac, type: 2}
   mortero: {fileID: 190534, guid: f70fb591e48707b4cb54f2958c977891, type: 2}
-  Oro: {fileID: 11401796, guid: e73159ab16e9ceb469b27e814204d952, type: 2}
-  Mana: {fileID: 11424176, guid: e73159ab16e9ceb469b27e814204d952, type: 2}
 --- !u!114 &11495902
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -158,6 +156,16 @@ Prefab:
       propertyPath: path
       value: 
       objectReference: {fileID: 156504, guid: e7033877b2bfec549990b40a6e1916bc, type: 2}
+    - target: {fileID: 0}
+      propertyPath: oroText
+      value: 
+      objectReference: {fileID: 11401796, guid: e73159ab16e9ceb469b27e814204d952,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: manaText
+      value: 
+      objectReference: {fileID: 11424176, guid: e73159ab16e9ceb469b27e814204d952,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 127844}

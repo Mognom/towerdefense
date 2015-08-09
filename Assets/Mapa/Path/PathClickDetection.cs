@@ -3,17 +3,18 @@ using System.Collections;
 
 public class PathClickDetection : MonoBehaviour {
 
-	public LevelManager lm;
+	private LevelManager levelManager;
 	private bool used;
 	
 	void Start () {
 		used = false;
+		levelManager = GameObject.Find ("LevelManager").GetComponent<LevelManager>();
 	}
 	
 	
 	void OnMouseOver(){
 		if (!used && Input.GetMouseButtonDown (0)) {
-			used = lm.interaccionPath(transform.position);
+			used = levelManager.interaccionPath(transform.position);
 			
 		}
 	}

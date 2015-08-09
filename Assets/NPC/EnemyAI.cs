@@ -3,14 +3,18 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class EnemyAI : MonoBehaviour {
-	
+
+	//Stats del enemigo
 	public int speed;
-	public int maxHP;
+	public int maxHP = 10;
+	public int oro = 10;
+
 
 	public GameObject popUpPrefab;
 	public GameObject cadaver;
 
-	private GameObject m_Camera;
+	private LevelManager levelManager;
+
 	private int HP;
 	private Transform healthBar;
 	private Transform canvas;
@@ -20,10 +24,7 @@ public class EnemyAI : MonoBehaviour {
 		transform.transform.FindChild ("HealthBarCanvas").gameObject.SetActive(false);
 		healthBar = transform.FindChild ("HealthBarCanvas/HealthBar");
 
-		//m_Camera = GameObject.FindGameObjectWithTag ("MainCamera");
-//		gM = GameObject.Find ("GameManager");
-//		spawnM = gM.GetComponent<SpawnManager> ();
-
+		levelManager = GameObject.Find ("LevelManager").GetComponent<LevelManager>();
 
 		//Start moving
 		this.GetComponent<Rigidbody> ().velocity = new Vector3 (speed, 0, 0);
@@ -44,6 +45,7 @@ public class EnemyAI : MonoBehaviour {
 		if (HP <= 0) {
 			createPopup("+10g", Color.yellow, 130, true);
 			Destroy (this.gameObject);
+			levelManager.sumarOro(oro);
 			Instantiate(cadaver, this.gameObject.transform.position ,this.gameObject.transform.rotation);
 			return;
 		}

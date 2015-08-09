@@ -14,52 +14,42 @@ public class LevelManager : MonoBehaviour {
 	 * 
 	 */
 	private int selected;
+
+	//Variables que dependen del nivel actual
+	public int oroInicial;
+	
+
+	//Torres y sus respectivos precios
 	public GameObject arqueros, ballesta, pinchos, lava, mortero;
-	public Text Oro, Mana;
+	private int precioArqueros = 100, precioBallesta = 150, precioPinchos = 50, precioLava = 500, precioMortero = 150;
+
+	private Text oroText, manaText;
+
 	private string mMax = "/100";
-	private int o = 0, m = 0;
+	private int oro = 0, mana = 0;
 	
 	// Use this for initialization
 	void Start () {
 		QualitySettings.vSyncCount = 0;  // VSync must be disabled
 		Application.targetFrameRate = 300;
+
+		//Puntero a los textos del HUD
+		GameObject hud = GameObject.Find ("HUD");
+		Text[] textos = hud.GetComponentsInChildren<Text> ();
+		oroText = textos[0];
+		manaText = textos [1];
+
 		selected = 0;
-		Oro.text = o.ToString();
-		Mana.text = m.ToString() + mMax;
+		oro = oroInicial;
+		print (oro + "oro actual");
+
+		oroText.text = oro.ToString();
+		manaText.text = mana.ToString() + mMax;
 		StartCoroutine (manaTemporal ());
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
-	public void sumarOro(int o){
-		this.o += o;
-		Oro.text = this.o.ToString ();
-	}
-
-	public void sumarMana(int m){
-		if (this.m < 100) {
-			this.m += m;
-			Mana.text = this.m.ToString () + mMax;
-		}
-	}
-
-	public void restarMana(int m){
-		if (this.m > 0) {
-			this.m -= m;
-			Mana.text = this.m.ToString () + mMax;
-		}
-	}
-
-	IEnumerator manaTemporal (){
-		while (true) {
-			yield return new WaitForSeconds (1);
-			sumarMana (1);
-		}
-	}
-
+	//Se ha hecho click en un bloque
 	public bool interaccionBloque(Vector3 pos){
 		
 		bool res = false;
@@ -68,22 +58,35 @@ public class LevelManager : MonoBehaviour {
 
 		//Construir torre de arqueros
 		case 1:
+			if(oro < precioArqueros)
+				break;
+			restarOro(precioArqueros);
 			Instantiate (arqueros, pos + new Vector3(0f,0.3f,0f) , arqueros.transform.rotation);
 			selected = 0;
 			res = true;
 			break;
 		
 		case 2:
+			print (oro +"vs " +precioBallesta);
+			if(oro < precioBallesta)
+				break;
+			restarOro(precioBallesta);
 			Instantiate (ballesta, pos + new Vector3(0f,0.3f,0f) , ballesta.transform.rotation);
 			selected = 0;
 			res = true;
 			break;
 		case 4:
+			if(oro < precioLava)
+				break;
+			restarOro(precioLava);
 			Instantiate (lava, pos + new Vector3(0f,0.3f,0f) , lava.transform.rotation);
 			selected = 0;
 			res = true;
 			break;
 		case 5:
+			if(oro < precioMortero)
+				break;
+			restarOro(precioMortero);
 			Instantiate (mortero, pos + new Vector3(0f,0.3f,0f) , mortero.transform.rotation);
 			selected = 0;
 			res = true;
@@ -96,18 +99,54 @@ public class LevelManager : MonoBehaviour {
 		return res;
 	}
 
+	//Se ha hecho click en un path
 	public bool interaccionPath(Vector3 pos){
 
 		if (selected == 3) {
+			if(oro < precioPinchos)
+				return false;
+			restarOro(precioPinchos);
 			Instantiate (pinchos, pos + new Vector3 (0f, 0.0f, 0f), pinchos.transform.rotation);
 			selected = 0;
 			return true;
 		}
-
 		return false;
 	}
 
 	public void setSelected(int id){
+		print (oro + "orooooooasdas");
 		selected = id;
+	}
+
+	//Modificacion del oro
+	public void sumarOro(int o){
+		oro += o;
+		oroText.text = oro.ToString ();
+	}
+	public void restarOro(int o){
+		print ("resta por algun motivo");
+		oro -= o;
+		oroText.text = oro.ToString ();
+	}
+
+
+	//Modificacion del mana
+	public void sumarMana(int m){
+		if (mana < 100) {
+			mana += m;
+			manaText.text = mana.ToString () + mMax;
+		}
+	}
+	public void restarMana(int m){
+		if (mana > 0) {
+			mana -= m;
+			manaText.text = this.mana.ToString () + mMax;
+		}
+	}
+	IEnumerator manaTemporal (){
+		while (true) {
+			yield return new WaitForSeconds (1);
+			sumarMana (1);
+		}
 	}
 }
