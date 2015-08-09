@@ -17,12 +17,20 @@ public class TowerTargetBehaviour : MonoBehaviour {
 	private Vector2 pos;
 	public GameObject projectile;
 	private GameObject actual;
+
+	//Attack range
+	private Projector projector;
 	
 	
 	//Inicializa cosas para no tener que hacerlo siempre e_e
 	void Start () {
 		pos = new Vector2(transform.position.x,transform.position.z);
 		elapsedCD = attackSecCD;
+
+		//Display del area de ataque
+		projector = this.GetComponentInChildren<Projector> ();
+		projector.enabled = false;
+		projector.orthographicSize = range;
 	}
 	
 	// Update is called once per frame
@@ -57,18 +65,16 @@ public class TowerTargetBehaviour : MonoBehaviour {
 		if(elapsedCD < attackSecCD)
 			elapsedCD += Time.deltaTime;
 	}
-	
-	
-	
-	
+
+	//Encuentra el enemigo mas cercano dentro del rango de ataque y lo elige como objetivo.
 	private GameObject findClosest(){
 		GameObject result = null;
+		//Obtiene una lista de los enemigos actuales
 		GameObject[] list = GameObject.FindGameObjectsWithTag (enemiesTag);
-		
 		double distancia;
 		double menorActual = range+1;
-		
-		
+	
+		//Busca el enemigo mas cercano dentro del rango
 		foreach (GameObject enemy in list) {
 			distancia = Vector2.Distance(new Vector2(enemy.transform.position.x,enemy.transform.position.z), pos);
 			if( distancia <= range && distancia < menorActual){
@@ -76,11 +82,24 @@ public class TowerTargetBehaviour : MonoBehaviour {
 				menorActual = distancia;
 			}
 		}
+		//Devuelve el enemigo mas cercano o null si ninguno cumple las condiciones
 		return result;
 	}
+	
+	//Enciende y apaga el proyector del area de ataque al poner el raton encima
+	void OnMouseEnter () {
+		projector.enabled = true;
+	}
+	void OnMouseExit(){
+		projector.enabled = false;
+	}
 
+	//Getter de target (usado para el aim de la ballesta)
 	public GameObject getTarget(){
 		return target;
-
 	}
+
+
+
+
 }
