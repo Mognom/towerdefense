@@ -4,8 +4,6 @@ using UnityEngine.Audio;
 
 public class Cadaver : MonoBehaviour {
 
-
-
 	private GameObject levelManager;
 	private SpawnManager spawnM;
 	private AudioSource muerte;
@@ -23,6 +21,7 @@ public class Cadaver : MonoBehaviour {
 		spawnM.saMorio();
 		muerte.Play ();
 		Invoke ("destructor", 2f); //Desctructor llamado a los 2 segundos para que de tiempo a terminar todo
+		Animator lol;
 	}
 
 	//Recicla el cadaver
