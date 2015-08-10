@@ -21,8 +21,6 @@ public class projectileBallesta : Projectile {
 	public override void setObjective(GameObject o){
 		objective = o;
 		Vector3 dir = (o.transform.position - transform.position).normalized;
-		print (dir.ToString());
-
 		transform.LookAt (o.transform.position);
 		destino = dir * 6 + transform.position;//o.transform.position;
 	}
@@ -30,7 +28,6 @@ public class projectileBallesta : Projectile {
 	void OnTriggerEnter(Collider other){
 		if (other.gameObject.tag == "Enemy") {
 			other.gameObject.GetComponent<EnemyAI>().damaged(damage);
-			//this.gameObject.recycle();
 		}
 		
 	}

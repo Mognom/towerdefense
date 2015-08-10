@@ -20,7 +20,7 @@ public class EnemyAI : MonoBehaviour {
 	private Transform canvas;
 
 	//Se llama una unica vez, "cachea" todas las busquedas necesarias para no tener que hacerlas nunca mais
-	void Start () {
+	void Awake () {
 		canvas = transform.transform.FindChild ("HealthBarCanvas");
 		healthBar = transform.FindChild ("HealthBarCanvas/HealthBar");
 		levelManager = GameObject.Find ("LevelManager").GetComponent<LevelManager>();
@@ -34,7 +34,7 @@ public class EnemyAI : MonoBehaviour {
 		canvas.gameObject.SetActive(false);
 	}
 
-	//Evento que salta cuando es dañado 
+	//Evento que salta cuando es dañado git
 	public void damaged(int damage){
 		//Si recibe daño teniendo la vida al maximo activa la barra de vida (solo sucede una vez)
 		if (HP == maxHP)
@@ -49,7 +49,7 @@ public class EnemyAI : MonoBehaviour {
 			createPopup("+10g", Color.yellow, 130, true);
 			this.gameObject.recycle();
 			levelManager.sumarOro(oro);
-			Instantiate(cadaver, this.gameObject.transform.position ,this.gameObject.transform.rotation);
+			cadaver.spawn( this.gameObject.transform.position ,this.gameObject.transform.rotation);
 			return;
 		}
 
