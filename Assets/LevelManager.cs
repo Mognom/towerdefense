@@ -170,7 +170,7 @@ public class LevelManager : MonoBehaviour {
 		if(!fastFoward)
 			Time.timeScale = 1f;
 		else
-			Time.timeScale = 2f;
+			Time.timeScale = 5f;
 	}
 	//Control sobre el pause
 	public void togglePause(){
@@ -179,10 +179,10 @@ public class LevelManager : MonoBehaviour {
 			Time.timeScale = 0f;
 		//Al quitar el pause vuelve a la velocidad que hay seleccionada
 		else {
-			if (fastFoward)
-				Time.timeScale = 2f;
-			else
+			if (!fastFoward)
 				Time.timeScale = 1f;
+			else
+				Time.timeScale = 5f;
 		}
 	}
 

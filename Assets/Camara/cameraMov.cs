@@ -21,16 +21,16 @@ public class cameraMov : MonoBehaviour {
 		Vector3 pos = Input.mousePosition;
 
 		if(pos.x > width - boundary)
-			transform.position += Vector3.right * movSpeed * Time.deltaTime;
+			transform.position += Vector3.right * movSpeed * Time.unscaledDeltaTime;
 
 		if(pos.x < boundary)
-			transform.position += Vector3.left * movSpeed * Time.deltaTime;
+			transform.position += Vector3.left * movSpeed * Time.unscaledDeltaTime;
 
 		if(pos.y > height - boundary)
-			transform.position += Vector3.forward * movSpeed * Time.deltaTime;
+			transform.position += Vector3.forward * movSpeed * Time.unscaledDeltaTime;
 
 		if(pos.y < boundary)
-			transform.position += Vector3.back * movSpeed * Time.deltaTime;
+			transform.position += Vector3.back * movSpeed * Time.unscaledDeltaTime;
 
 
 
