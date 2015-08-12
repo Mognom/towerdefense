@@ -74,12 +74,13 @@ public class SpawningPools : MonoBehaviour {
 		if (activeObjects.ContainsKey (gObject)) {
 
 			gObject.SetActive (false);
-			gObject.transform.SetParent(father.transform);
+			gObject.transform.SetParent (father.transform);
 
-			key = activeObjects[gObject];
-			pools[key].Add (gObject);
-			activeObjects.Remove(gObject);
-		}
+			key = activeObjects [gObject];
+			pools [key].Add (gObject);
+			activeObjects.Remove (gObject);
+		} else
+			Destroy (gObject);
 	}
 }
 

@@ -60,7 +60,7 @@ public class EnemyAI : MonoBehaviour {
 
 	//Creates a popUp text that despawns after a second
 	private void createPopup(string valor, Color col, int size = 100, bool gold = false){
-		GameObject temp = (GameObject)Instantiate (popUpPrefab,transform.position, Quaternion.identity);
+		GameObject temp = popUpPrefab.spawn(transform.position, Quaternion.identity);
 		Text texto = temp.GetComponentInChildren<Text> ();
 
 		//Configura el popup
@@ -75,10 +75,6 @@ public class EnemyAI : MonoBehaviour {
 		}
 		else
 			texto.GetComponent<Animator> ().SetTrigger("damage");
-
-		//Destruye el popup un segundo despues (lo que dura la animacion)
-		Destroy (temp, 1);
-
 	}
 
 
