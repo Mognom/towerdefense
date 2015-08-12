@@ -27,7 +27,11 @@ public class LevelManager : MonoBehaviour {
 
 	private string mMax = "/100";
 	private int oro = 0, mana = 0;
-	
+
+
+	//Time speed control
+	private bool paused, fastFoward;
+
 	// Use this for initialization
 	void Start () {
 		QualitySettings.vSyncCount = 0;  // VSync must be disabled
@@ -40,12 +44,18 @@ public class LevelManager : MonoBehaviour {
 		manaText = textos [1];
 
 		selected = 0;
-		oro = oroInicial;
-		print (oro + "oro actual");
 
+		//Da el oro inicial
+		oro = oroInicial;
+
+		//Escribe los textos iniciales de recursos y comienza a añadir mana por tiempo
 		oroText.text = oro.ToString();
 		manaText.text = mana.ToString() + mMax;
 		StartCoroutine (manaTemporal ());
+
+		//Configura los flags de control de tiempo
+		fastFoward = false;
+		paused = false;
 	}
 	
 
@@ -149,4 +159,31 @@ public class LevelManager : MonoBehaviour {
 			sumarMana (1);
 		}
 	}
+
+	//Control sobre la velocidad actual
+	public void toggleFastFoward(){
+		fastFoward = !fastFoward;
+
+		//Si esta pausado solo cambia la configuracion, sin afectar a la velocidad hasta quitar el pause
+		if (!paused)
+			return;
+		if(!fastFoward)
+			Time.timeScale = 1f;
+		else
+			Time.timeScale = 2f;
+	}
+	//Control sobre el pause
+	public void togglePause(){
+		paused = !paused;
+		if (paused)
+			Time.timeScale = 0f;
+		//Al quitar el pause vuelve a la velocidad que hay seleccionada
+		else {
+			if (fastFoward)
+				Time.timeScale = 2f;
+			else
+				Time.timeScale = 1f;
+		}
+	}
+
 }
